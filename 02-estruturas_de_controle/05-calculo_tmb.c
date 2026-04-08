@@ -19,6 +19,7 @@ Acima de 60 Metabolismo Lento
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     char sexo;
@@ -27,29 +28,15 @@ int main() {
 
     printf("Digite o sexo (M/F): ");
     scanf(" %c", &sexo);
-    
-    if (sexo != 'M' && sexo != 'm' && sexo != 'F' && sexo != 'f') {
-        printf("Sexo invalido!\n");
-        return 1;
-    }
 
     printf("Digite a idade (anos): ");
-    if (scanf("%d", &idade) != 1 || idade <= 0) {
-        printf("Idade invalida!\n");
-        return 1;
-    }
+    scanf("%d", &idade);
 
     printf("Digite o peso (kg): ");
-    if (scanf("%lf", &peso) != 1 || peso <= 0) {
-        printf("Peso invalido!\n");
-        return 1;
-    }
+    scanf("%lf", &peso);
 
     printf("Digite a altura (cm): ");
-    if (scanf("%d", &altura) != 1 || altura <= 0) {
-        printf("Altura invalida!\n");
-        return 1;
-    }
+    scanf("%d", &altura);
 
     if (sexo == 'M' || sexo == 'm') {
         tmb = 88.36 + (13.4 * peso) + (4.8 * altura) - (5.7 * idade);
@@ -62,13 +49,14 @@ int main() {
     printf("Classificacao: ");
     if (idade <= 25) {
         printf("Metabolismo Acelerado\n");
-    } else if (idade <= 45) {
+    } else if (idade >= 26 && idade <= 45) {
         printf("Metabolismo Normal\n");
-    } else if (idade <= 60) {
+    } else if (idade >= 46 && idade <= 60) {
         printf("Metabolismo Moderado\n");
     } else {
         printf("Metabolismo Lento\n");
     }
 
+    system("pause");
     return 0;
 }

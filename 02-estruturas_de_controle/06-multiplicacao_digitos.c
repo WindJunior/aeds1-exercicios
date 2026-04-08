@@ -14,44 +14,48 @@ deve ser exibido na tela.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     int a, b;
     
     printf("Digite o valor de A (positivo): ");
-    if (scanf("%d", &a) != 1 || a <= 0) {
-        printf("Entrada invalida.\n");
-        return 1;
-    }
+    scanf("%d", &a);
     
     printf("Digite o valor de B (positivo e maior que A): ");
-    if (scanf("%d", &b) != 1 || b <= a) {
-        printf("Entrada invalida.\n");
-        return 1;
-    }
+    scanf("%d", &b);
 
-    for (int i = a; i <= b; i++) {
-        int div2 = (i % 2 == 0);
-        int div7 = (i % 7 == 0);
-        
-        if ((div2 || div7) && !(div2 && div7)) {
-            int temp = i;
-            long long multiplicacao = 1;
+    if (a < b) {
+        int encontrou = 0;
+        for (int i = a; i <= b; i++) {
             
-            if (temp == 0) {
-                multiplicacao = 0;
-            } else {
-                while (temp > 0) {
-                    multiplicacao *= (temp % 10);
-                    temp /= 10;
+            if ((i % 2 == 0 && i % 7 != 0) || (i % 2 != 0 && i % 7 == 0)) {
+                int temp = i;
+                long long multiplicacao = 1;
+                
+                if (temp == 0) {
+                    multiplicacao = 0;
+                } else {
+                    while (temp > 0) {
+                        multiplicacao = multiplicacao * (temp % 10);
+                        temp = temp / 10;
+                    }
+                }
+                
+                if (multiplicacao % 2 != 0) {
+                    printf("%d\n", i);
+                    encontrou = 1;
                 }
             }
-            
-            if (multiplicacao % 2 != 0) {
-                printf("%d\n", i);
-            }
         }
+        
+        if (encontrou == 0) {
+            printf("Nenhum numero encontrado com esses criterios dentro do intervalo.\n");
+        }
+    } else {
+        printf("O valor de A precisa ser menor que B.\n");
     }
 
+    system("pause");
     return 0;
 }

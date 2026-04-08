@@ -19,13 +19,14 @@ também informando a semana e o dia correspondente;
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     int horas_mes = 0;
-    int maior_horas = -1;
+    int maior_horas = 0;
     int maior_sem = 0, maior_dia = 0;
     
-    int menor_horas = -1; 
+    int menor_horas = 99999; 
     int menor_sem = 0, menor_dia = 0;
 
     for (int semana = 1; semana <= 4; semana++) {
@@ -35,32 +36,20 @@ int main() {
         for (int dia = 1; dia <= 7; dia++) {
             int horas;
             printf("Semana %d, Dia %d - Horas estudadas (-1 para ignorar): ", semana, dia);
-            if (scanf("%d", &horas) != 1) {
-                printf("Entrada invalida.\n");
-                return 1;
-            }
+            scanf("%d", &horas);
 
-            if (horas == -1) {
-                continue;
-            }
-            
-            if (horas < 0) {
-                printf("Valor invalido ignorado.\n");
-                continue;
-            }
+            if (horas != -1 && horas >= 0) {
+                horas_semana = horas_semana + horas;
+                horas_mes = horas_mes + horas;
+                dias_estudados++;
 
-            horas_semana += horas;
-            horas_mes += horas;
-            dias_estudados++;
+                if (horas > maior_horas) {
+                    maior_horas = horas;
+                    maior_sem = semana;
+                    maior_dia = dia;
+                }
 
-            if (horas > maior_horas) {
-                maior_horas = horas;
-                maior_sem = semana;
-                maior_dia = dia;
-            }
-
-            if (horas > 0) {
-                if (menor_horas == -1 || horas < menor_horas) {
+                if (horas > 0 && horas < menor_horas) {
                     menor_horas = horas;
                     menor_sem = semana;
                     menor_dia = dia;
@@ -81,17 +70,18 @@ int main() {
     printf("--- Resumo do Mes ---\n");
     printf("Total geral de horas estudadas: %d\n", horas_mes);
     
-    if (maior_horas != -1) {
+    if (maior_horas > 0) {
         printf("Dia com maior numero de horas: Semana %d, Dia %d (%d horas)\n", maior_sem, maior_dia, maior_horas);
     } else {
         printf("Nenhum dia com horas foi registrado.\n");
     }
 
-    if (menor_horas != -1) {
+    if (menor_horas != 99999) {
         printf("Dia com menor numero de horas (diferente de zero): Semana %d, Dia %d (%d horas)\n", menor_sem, menor_dia, menor_horas);
     } else {
         printf("Nenhum dia com horas maior que zero foi registrado.\n");
     }
 
+    system("pause");
     return 0;
 }

@@ -11,14 +11,15 @@ mostre o resultado final da subtração.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     long long num1, num2;
     printf("Digite o primeiro numero inteiro: ");
-    if (scanf("%lld", &num1) != 1) return 1;
+    scanf("%lld", &num1);
     
     printf("Digite o segundo numero inteiro: ");
-    if (scanf("%lld", &num2) != 1) return 1;
+    scanf("%lld", &num2);
 
     long long multiplicacao = num1 * num2;
     printf("Multiplicacao: %lld\n", multiplicacao);
@@ -26,16 +27,16 @@ int main() {
     long long soma = multiplicacao + num1;
     printf("Soma: %lld\n", soma);
 
-    if (num2 == 0) {
-        printf("Erro: nao e possivel prosseguir com a divisao, pois o segundo numero e zero.\n");
-        return 1;
+    if (num2 != 0) {
+        long long divisao = soma / num2;
+        printf("Divisao: %lld\n", divisao);
+
+        long long subtracao = divisao - num2;
+        printf("Subtracao (Resultado Final): %lld\n", subtracao);
+    } else {
+        printf("Nao e possivel realizar a divisao por zero.\n");
     }
 
-    long long divisao = soma / num2;
-    printf("Divisao: %lld\n", divisao);
-
-    long long subtracao = divisao - num2;
-    printf("Subtracao (Resultado Final): %lld\n", subtracao);
-
+    system("pause");
     return 0;
 }

@@ -5,25 +5,26 @@ destaque para todo número que for primo.
 */
 
 #include <stdio.h>
-
-int eh_primo(int num) {
-    if (num <= 1) return 0;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return 0;
-    }
-    return 1;
-}
+#include <stdlib.h>
 
 int main() {
     int n;
     printf("Digite o valor de N: ");
-    if (scanf("%d", &n) != 1 || n < 1) {
-        printf("Entrada invalida. Digite um numero inteiro positivo.\n");
-        return 1;
-    }
+    scanf("%d", &n);
 
     for (int i = 1; i <= n; i++) {
-        if (eh_primo(i)) {
+        int e_primo = 1;
+        if (i <= 1) {
+            e_primo = 0;
+        } else {
+            for (int k = 2; k < i; k++) {
+                if (i % k == 0) {
+                    e_primo = 0;
+                }
+            }
+        }
+
+        if (e_primo == 1) {
             printf("%d (PRIMO): ", i);
         } else {
             printf("%d: ", i);
@@ -37,5 +38,6 @@ int main() {
         printf("\n");
     }
 
+    system("pause");
     return 0;
 }
