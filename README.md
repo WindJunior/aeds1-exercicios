@@ -4,6 +4,17 @@ Este repositório contém uma coleção de exercícios práticos desenvolvidos d
 
 ---
 
+## 📑 Sumário
+
+- [📂 Estrutura do Repositório](#-estrutura-do-repositório)
+  - [01 - Expressões Básicas](#01---expressões-básicas)
+  - [02 - Estruturas de Controle](#02---estruturas-de-controle)
+  - [03 - Exercícios de Lógica](#03---exercícios-de-lógica)
+- [🛠️ Tecnologias Utilizadas](#️-tecnologias-utilizadas)
+- [🚀 Como executar](#-como-executar)
+
+---
+
 ## 📂 Estrutura do Repositório
 
 ### 01 - Expressões Básicas
@@ -26,27 +37,46 @@ Exercícios voltados para o aprendizado de entrada e saída de dados, tipos de v
 ### 02 - Estruturas de Controle
 Exercícios focados em lógica de programação avançada, utilizando estruturas condicionais (`if/else`) e de repetição (`for`, `while`).
 
-- **01-analise_numeros.c**: Processamento de um vetor de 10 números para identificar soma, média, valores extremos (maior, segundo maior, menor, segundo menor) e paridade.
-- **02-divisores_primos.c**: Algoritmo para encontrar todos os divisores de números em um intervalo e identificar quais desses números são primos.
-- **03-multiplicacao_pares_2000.c**: Uso de loops e condicionais para filtrar e multiplicar números pares que seguem múltiplos específicos abaixo de 2000.
-- **04-operacoes_matematicas.c**: Realização de uma sequência de operações matemáticas encadeadas baseadas em entradas do usuário.
-- **05-calculo_tmb.c**: Cálculo da Taxa Metabólica Basal (TMB) com classificação baseada em sexo, idade, peso e altura, utilizando múltiplas condições.
-- **06-multiplicacao_digitos.c**: Algoritmo complexo que percorre um intervalo, aplica filtros de divisibilidade e processa a multiplicação de dígitos individuais de cada número.
-- **07-monitoramento_estudos.c**: Sistema de registro de estudos para 4 semanas (28 dias) usando loops aninhados, cálculo de médias semanais e identificação de recordes e mínimos históricos.
+- **01-analise_numeros.c**: Processamento de um vetor de 10 números para identificar soma, média, valores extremos e paridade.
+- **02-divisores_primos.c**: Algoritmo para encontrar divisores e identificar números primos em um intervalo.
+- **03-multiplicacao_pares_2000.c**: Filtro e multiplicação de números pares específicos abaixo de 2000.
+- **04-operacoes_matematicas.c**: Sequência de operações matemáticas encadeadas.
+- **05-calculo_tmb.c**: Cálculo da Taxa Metabólica Basal com classificação por perfil de usuário.
+- **06-multiplicacao_digitos.c**: Algoritmo de divisibilidade e processamento de dígitos individuais.
+- **07-monitoramento_estudos.c**: Sistema de registro de estudos com análise semanal e recordes.
 
-> **Skills**: Estruturas de decisão (`if/else`), laços de repetição (`for`, `while`), loops aninhados, lógica booleana, manipulação de dígitos numéricos, acumuladores e flags.
+> **Skills**: Estruturas de decisão (`if/else`), laços de repetição (`for`, `while`), loops aninhados e lógica booleana.
+
+---
+
+### 03 - Exercícios de Lógica
+Exercícios práticos que integram múltiplos conceitos de programação para resolver problemas e simulações do mundo real.
+
+- **01-decomposicao_tempo.c**: Decomposição de segundos em unidades maiores (Anos, Meses, Semanas, Dias, etc.).
+- **02-simulador_investimentos.c**: Simulação de rentabilidade para diferentes perfis de investimento (Poupança, Renda Fixa, Ações).
+- **03-proliferacao_biologica.c**: Cálculo de crescimento populacional baseado na sequência de Fibonacci.
+- **04-censo_rh.c**: Coleta e processamento de dados demográficos e salariais de funcionários para geração de relatórios.
+
+> **Skills**: Manipulação de tempo, cálculos financeiros, recursão lógica em loops, validação de entrada e processamento de estatísticas.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 - **Linguagem**: C (Padrão ANSI)
 - **Compilador**: GCC
+- **Ambiente**: Terminal / VS Code
 
 ## 🚀 Como executar
 Para compilar e executar qualquer um dos exercícios, utilize o GCC no terminal:
 
 ```bash
+# Navegue até a pasta do exercício
+cd 01-expressoes_basicas
+
+# Compile o arquivo
 gcc nome_do_arquivo.c -o programa
+
+# Execute
 ./programa
 ```
 
